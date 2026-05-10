@@ -227,6 +227,15 @@ function startEnvelopeAnimation() {
     setTimeout(() => {
       letterPaper.classList.add('revealed');
 
+      // Em dispositivos móveis, garante que a carta fique visível no centro da tela
+      setTimeout(() => {
+        try {
+          letterPaper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } catch (e) {
+          window.scrollTo({ top: letterPaper.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+        }
+      }, 120);
+
       // paragrafos aparecem em cascata
       const paras = letterPaper.querySelectorAll('.fade-para');
       paras.forEach((p, i) => {

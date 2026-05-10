@@ -681,20 +681,37 @@ body::after {
    RESPONSIVO
 ════════════════════════════════════════════════ */
 @media (max-width: 600px) {
-  .hero-title     { font-size: clamp(3rem, 15vw, 5rem); }
-  .btn-open       { padding: 16px 32px; font-size: .78rem; }
-  .letter-paper   { padding: 28px 22px 32px; }
-  .envelope-scene { min-height: 340px; }
-  .letter-paper.revealed { transform: translateX(-50%) translateY(-220px); }
-  .final-title    { font-size: clamp(3.4rem, 18vw, 6rem); }
+  .section         { padding: 36px 16px; }
+  .hero-title      { font-size: clamp(3rem, 15vw, 5rem); }
+  .btn-open        { padding: 16px 32px; font-size: .78rem; }
+  .letter-paper    { padding: 28px 20px 32px; }
+  .envelope-scene  { min-height: 300px; }
 
-  .letter-para    { font-size: .88rem; }
-  .hero-sub       { font-size: .85rem; }
-  .btn-secondary  { padding: 12px 28px; }
+  /* Em telas móveis, posicione a carta com referência ao topo/centro
+     em vez de depender de um deslocamento fixo em pixels que pode cortar */
+  .letter-paper {
+    bottom: auto;
+    top: 50%;
+    transform: translateX(-50%) translateY(0);
+    transition: opacity .4s, transform .8s var(--ease-soft);
+  }
+
+  .letter-paper.revealed {
+    /* centra a carta na tela quando revelar */
+    transform: translateX(-50%) translateY(-50%);
+    pointer-events: auto;
+  }
+
+  .final-title     { font-size: clamp(3.4rem, 18vw, 6rem); }
+  .letter-para     { font-size: .88rem; }
+  .hero-sub        { font-size: .85rem; }
+  .btn-secondary   { padding: 12px 28px; }
 }
 
 @media (max-width: 380px) {
-  .letter-paper.revealed { transform: translateX(-50%) translateY(-190px); }
+  /* ajustes finos para telas muito pequenas */
+  .section { padding: 28px 12px; }
+  .envelope-scene { min-height: 260px; }
 }
 
 /* ════════════════════════════════════════════════
