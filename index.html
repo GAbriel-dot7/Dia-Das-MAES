@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Dia das Mães ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ════════════════════════════════════
+       CANVAS — partículas de fundo
+  ════════════════════════════════════ -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Corações seguindo o mouse -->
+  <div id="cursorTrail"></div>
+
+  <!-- ════════════════════════════════════
+       SEÇÃO 1 — HERO
+  ════════════════════════════════════ -->
+  <section id="hero" class="section">
+
+    <!-- corações flutuantes decorativos -->
+    <div class="floating-hearts" aria-hidden="true">
+      <span class="fh fh1">♥</span>
+      <span class="fh fh2">♡</span>
+      <span class="fh fh3">♥</span>
+      <span class="fh fh4">♡</span>
+      <span class="fh fh5">♥</span>
+      <span class="fh fh6">♡</span>
+      <span class="fh fh7">♥</span>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal-up">para a mulher mais especial da minha vida</p>
+      <h1 class="hero-title reveal-up delay-1">
+        Feliz<br/>
+        <em>Dia das</em><br/>
+        Mães
+      </h1>
+      <div class="hero-ornament reveal-up delay-2">
+        <span class="line"></span>
+        <span class="heart-icon">♥</span>
+        <span class="line"></span>
+      </div>
+      <p class="hero-sub reveal-up delay-3">
+        Existe um amor que não cabe em palavras.<br/>
+        Mas eu tentei guardar tudo numa carta especial para você.
+      </p>
+      <button id="openLetterBtn" class="btn-open reveal-up delay-4">
+        <span class="btn-inner">
+          <svg viewBox="0 0 24 24" fill="none" class="btn-icon">
+            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Abrir minha carta
+        </span>
+        <span class="btn-shimmer"></span>
+      </button>
+    </div>
+
+    <!-- scroll hint -->
+    <div class="scroll-hint reveal-up delay-5" aria-hidden="true">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       SEÇÃO 2 — ENVELOPE / CARTA
+  ════════════════════════════════════ -->
+  <section id="letterSection" class="section hidden-section">
+
+    <div class="envelope-scene" id="envelopeScene">
+
+      <!-- ENVELOPE -->
+      <div class="envelope" id="envelope">
+        <div class="env-back"></div>
+        <div class="env-body">
+          <div class="env-seal" id="envSeal">
+            <span>♥</span>
+          </div>
+        </div>
+        <div class="env-flap" id="envFlap"></div>
+        <div class="env-bottom-left"></div>
+        <div class="env-bottom-right"></div>
+      </div>
+
+      <!-- CARTA (surge do envelope) -->
+      <div class="letter-paper" id="letterPaper">
+        <div class="letter-inner">
+          <div class="letter-header">
+            <span class="letter-rose">❀</span>
+            <p class="letter-date">Dia das Mães, 2025</p>
+          </div>
+          <p class="letter-greeting typewriter" id="letterText"></p>
+          <div class="letter-body">
+            <p class="letter-para fade-para">
+              Você é o primeiro amor que conheci.<br/>
+              O colo mais seguro, o sorriso mais bonito,<br/>
+              a voz que ainda me acalma mesmo de longe.
+            </p>
+            <p class="letter-para fade-para">
+              Cada sacrifício que você fez, eu guardo no coração.<br/>
+              Cada abraço, cada conselho, cada noite que você ficou acordada por mim<br/>
+              — eu sei, e sou grato por cada segundo.
+            </p>
+            <p class="letter-para fade-para">
+              Seu amor mudou a minha vida todos os dias.<br/>
+              E hoje, quero que você saiba:<br/>
+              você é a razão de tudo que sou.
+            </p>
+          </div>
+          <div class="letter-signature fade-para">
+            <p>Com amor infinito,</p>
+            <p class="sig-name">Seu filho(a) ♥</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <button id="toFinalBtn" class="btn-secondary fade-para">
+      Ver mensagem final ↓
+    </button>
+  </section>
+
+  <!-- ════════════════════════════════════
+       SEÇÃO 3 — FINAL EMOCIONANTE
+  ════════════════════════════════════ -->
+  <section id="finalSection" class="section hidden-section">
+
+    <!-- chuva de corações -->
+    <div id="heartRain" class="heart-rain" aria-hidden="true"></div>
+
+    <div class="final-content">
+      <div class="final-wreath" aria-hidden="true">
+        <span>✿ ✾ ❀ ✽ ❁ ✿</span>
+      </div>
+      <h2 class="final-title">
+        Te amo,<br/>
+        <em>Mãe.</em>
+      </h2>
+      <p class="final-sub">
+        Hoje e sempre. ❤️
+      </p>
+      <div class="final-divider">
+        <span>♥</span>
+      </div>
+      <p class="final-quote">
+        "O amor de mãe é a única força capaz de mover o mundo<br/>sem fazer barulho."
+      </p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
